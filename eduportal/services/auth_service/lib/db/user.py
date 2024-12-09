@@ -1,13 +1,10 @@
-from passlib.context import CryptContext
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
 
 from core.exceptions.user import UserNotFoundException
+from core.security import Encryptor
 from lib.models.user import UserModel
 from lib.schemas.user import UserCreateSchema, UserSchema
-
-
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 
 async def create_user(
@@ -15,7 +12,7 @@ async def create_user(
     *,
     schema: UserCreateSchema,
 ) -> UserSchema:
-    hashed_password = pwd_context.hash(schema.password)
+    hashed_password = Encryptor.hash_password(schema.password)
     user_model = UserModel(
         **schema.model_dump(exclude={"password"}),
         hashed_password=hashed_password,

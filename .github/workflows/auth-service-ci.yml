@@ -3,7 +3,7 @@ name: Auth Service CI/CD
 on:
   push:
     paths:
-      - 'services/auth_service/**'
+      - 'eduportal/services/auth_service/**'
       - '.github/workflows/auth-service-ci.yml'
 
 jobs:
@@ -25,7 +25,7 @@ jobs:
     - name: Build and Push
       uses: docker/build-push-action@v3
       with:
-        context: ./services/auth_service
+        context: ./eduportal/services/auth_service
         push: true
         tags: |
           ghcr.io/haykor/eduportal/auth-service:latest

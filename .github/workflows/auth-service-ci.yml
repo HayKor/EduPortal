@@ -28,5 +28,5 @@ jobs:
         context: ./services/auth-serice
         push: true
         tags: |
-          ghcr.io/${{ github.repository }}/auth-service:latest
-          ghcr.io/${{ github.repository }}/auth-service:${{ github.sha }}
+          ghcr.io/HayKor/eduportal/auth-service:latest
+          ghcr.io/HayKor/eduportal/auth-service:${{ github.sha }}

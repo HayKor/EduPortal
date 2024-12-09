@@ -13,8 +13,6 @@ python = "^3.12"
 # FastAPI
 fastapi = "^0.111.0"                                   # Web-framework
 pydantic = "^2.7"                                      # Serialization-framework
-python-multipart = "^0.0.9"                            # Multipart form files handling
-pyfa-converter-v2 = "^2.0.0rc1"                        # Utility to convert Pydantic models to FastAPI dependencies
 uvicorn = { extras = ["standard"], version = "^0.30" } # ASGI web-server
 
 # Database
@@ -24,15 +22,11 @@ alembic = "^1.13"        # Database migrations
 python-dateutil = "^2.9" # Date handling
 pytz = "^2024.1"         # Timezone handling
 
-# CLI
-click = "^8.1" # CLI framework
-
 # Other
 pydantic-settings = "^2.3.3" # Settings framework
 
 
 [tool.poetry.group.dev.dependencies]
-types-click = "^7.1.8" # For Click mypy support
 types-pyyaml = "^6.0.12.20240311" # For PyYAML mypy support
 black = "^24.3.0" # Code formatter
 isort = "^5.12.0" # Import sorting

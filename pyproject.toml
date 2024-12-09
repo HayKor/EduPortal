@@ -29,6 +29,7 @@ click = "^8.1" # CLI framework
 
 # Other
 pydantic-settings = "^2.3.3" # Settings framework
+pyjwt = "^2.10.1"
 
 
 [tool.poetry.group.dev.dependencies]

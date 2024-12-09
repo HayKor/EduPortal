@@ -4,6 +4,7 @@ from fastapi import Depends, Request
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import sessionmaker
 
+from ..security import Encryptor
 from . import constructors as app_depends
 
 
@@ -29,4 +30,9 @@ async def db_session(
         raise RuntimeError("Database session not closed (db dependency generator is not closed).")
 
 
+def encryptor() -> Encryptor:
+    return Encryptor(secret_key="TODO: CHANGE", jwt_algorithm="HS256")
+
+
 DatabaseDependency = Annotated[AsyncSession, Depends(db_session)]
+EncryptorDependency = Annotated[Encryptor, Depends(encryptor)]

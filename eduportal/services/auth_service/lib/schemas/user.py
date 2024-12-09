@@ -12,6 +12,11 @@ class UserCreateSchema(BaseUserSchema):
     password: str
 
 
+class UserLoginSchema(BaseSchema):
+    username: str
+    password: str
+
+
 class UserSchema(BaseUserSchema):
     id: int
     is_active: bool
